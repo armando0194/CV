@@ -1,0 +1,456 @@
+// sass-lint:disable no-vendor-prefixes
+
+// Colors
+$black: #000;
+$white: #fff;
+$darkgrey: #333;
+$grey: #999;
+$lightgrey: #dadada;
+$brown: #8d5852;
+$darkbrown: #522917;
+$green: #799753;
+$yellow: #f3ca2f;
+$background-color: #272727;
+
+$time: 2s;
+$time2: 1.5s;
+
+$bike-height: 400px;
+$bike-width: 600px;
+
+// Mixins
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin animation ($animation, $duration, $timing, $iteration) {
+  -moz-animation-duration: $duration;
+  -moz-animation-iteration-count: $iteration;
+  -moz-animation-name: $animation;
+  -moz-animation-timing-function: $timing;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-timing-function: $timing;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-name: $animation;
+  animation-timing-function: $timing;
+
+}
+
+// Animations
+//wheel
+@include keyframes(wheelspin) {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//floor
+@include keyframes(floor) {
+  to {
+    background-position-x: 100%;
+  }
+}
+
+//pedals
+@include keyframes(pedalstem-front) {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@include keyframes(pedalstem-back) {
+  from {
+    transform: rotate(-180deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@include keyframes(pedalbase-front) {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@include keyframes(pedalbase-back) {
+  from {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+
+
+.loader {
+  background: $background-color;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+// The bike
+.bike {
+  bottom: 0;
+  height: $bike-height;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $bike-width;
+  zoom: 0.25;
+  -moz-transform: scale(0.25);
+
+  @include animation(riding, $time * 2, linear, infinite);
+
+  .part {
+    position: absolute;
+  }
+}
+
+.frame {
+  .bar {
+    background: $yellow;
+    position: absolute;
+    width: 12px;
+
+    &.left-top {
+      height: 186px;
+      margin-left: 128px;
+      margin-top: 110px;
+      width: 10px;
+      @include transform(rotate(37deg));
+    }
+
+    &.left-bottom {
+      height: 170px;
+      margin-left: 149px;
+      margin-top: 203px;
+      width: 8px;
+      @include transform(rotate(-82deg));
+    }
+
+    &.left {
+      height: 230px;
+      margin-left: 200px;
+      margin-top: 80px;
+      @include transform(rotate(-15deg));
+    }
+
+    &.top {
+      height: 224px;
+      margin-left: 282px;
+      margin-top: -10px;
+      @include transform(rotate(90deg));
+    }
+
+    &.bottom {
+      height: 250px;
+      margin-left: 317px;
+      margin-top: 87px;
+      @include transform(rotate(45deg));
+    }
+
+    &.right {
+      height: 230px;
+      margin-left: 421px;
+      margin-top: 60px;
+      @include transform(rotate(-19deg));
+    }
+  }
+}
+
+.sadle {
+  margin-left: 184px;
+
+  .sit-here {
+    border-bottom: 110px solid $black;
+    border-left: 0 solid transparent;
+    border-radius: 10px 0;
+    border-right: 22px solid transparent;
+    height: 0;
+    margin-left: -35px;
+    margin-top: -20px;
+    position: absolute;
+    width: 10px;
+    @include transform(rotate(98deg));
+  }
+
+  .sadlepen {
+    background: $lightgrey;
+    height: 200px;
+    margin-top: 30px;
+    position: absolute;
+    width: 10px;
+    @include transform(rotate(-16deg));
+  }
+}
+
+.wheel {
+  border: 15px solid $lightgrey;
+  border-radius: 100%;
+  box-shadow: 0 0 0 10px $darkgrey;
+  height: 225px;
+  margin-top: 160px;
+  width: 225px;
+
+  @include animation(wheelspin, $time, linear, infinite);
+
+  &.left {
+    margin-left: -35px;
+  }
+
+  &.right {
+    margin-left: 348px;
+  }
+
+  .spoke {
+    background: $lightgrey;
+
+    height: 200px;
+    margin-left: 98px;
+    position: absolute;
+    width: 2px;
+
+    &:nth-child(2) {
+      @include transform(rotate(30deg));
+    }
+
+    &:nth-child(3) {
+      @include transform(rotate(60deg));
+    }
+
+    &:nth-child(4) {
+      @include transform(rotate(90deg));
+    }
+
+    &:nth-child(5) {
+      @include transform(rotate(120deg));
+    }
+
+    &:nth-child(6) {
+      @include transform(rotate(150deg));
+    }
+
+    &:nth-child(7) {
+      @include transform(rotate(180deg));
+    }
+
+    &:nth-child(8) {
+      @include transform(rotate(210deg));
+    }
+  }
+}
+
+
+
+.axis {
+  background: $darkgrey;
+  border-radius: 100%;
+  height: 25px;
+  margin-top: 265px;
+  position: absolute;
+  width: 25px;
+
+  &.left {
+    margin-left: 67px;
+  }
+
+  &.right {
+    margin-left: 451px;
+  }
+}
+
+.handlebar {
+  .stem {
+    background: $lightgrey;
+    height: 200px;
+    margin-left: 412px;
+    margin-top: 45px;
+    position: absolute;
+    width: 10px;
+    @include transform(rotate(-19deg));
+  }
+
+  .connector {
+    background: $lightgrey;
+    height: 20px;
+    margin-left: 374px;
+    margin-top: 40px;
+    @include transform(rotate(-19deg));
+    width: 20px;
+  }
+
+  .prehandle {
+    background: $lightgrey;
+    height: 40px;
+    margin-left: 394px;
+    margin-top: -45px;
+    @include transform(rotate(42deg));
+    width: 15px;
+  }
+
+  .handle {
+    background: $black;
+    border-radius: 100%;
+    height: 25px;
+    margin-left: 400px;
+    margin-top: -45px;
+    position: absolute;
+    width: 25px;
+  }
+}
+
+.pedals {
+  margin-left: 227px;
+  margin-top: 295px;
+
+  * {
+    position: absolute;
+  }
+
+  .inside {
+    background: $darkgrey;
+    border-radius: 100%;
+    height: 9px;
+    margin-left: 3.5px;
+    margin-top: 2.4px;
+    width: 9px;
+  }
+
+  .outside {
+    border: 5px solid $black;
+    border-radius: 100%;
+    height: 80px;
+    margin-left: -37px;
+    margin-top: -39px;
+    width: 80px;
+  }
+
+  .pedalstem {
+    background: $lightgrey;
+    border-radius: 10px 10px 0 0;
+    height: 80px;
+    margin-left: 2px;
+    transform-origin: 6px 7px;
+
+    width: 12px;
+
+    &.front {
+      @include animation(pedalstem-front, $time * .5, linear, infinite);
+    }
+
+    &.back {
+      @include animation(pedalstem-back, $time * .5, linear, infinite);
+      @include transform(rotate(180deg));
+    }
+  }
+
+  .pedalbase {
+    background: $black;
+    height: 15px;
+    margin-left: -12px;
+    margin-top: 70px;
+    width: 40px;
+
+    &.front {
+      @include animation(pedalbase-front, $time * .5, linear, infinite);
+    }
+
+    &.back {
+      @include animation(pedalbase-back, $time * .5, linear, infinite);
+    }
+  }
+}
+
+//Z-INDEXES
+.inside {
+  z-index: 6;
+}
+
+.axis {
+  z-index: 5;
+}
+
+.pedalstem {
+  &.front {
+    z-index: 5;
+  }
+
+  &.back {
+    z-index: -1;
+  }
+}
+
+.frame {
+  z-index: 4;
+}
+
+.outside {
+  z-index: 4;
+}
+
+.handlebar {
+  z-index: 3;
+}
+
+.sit-here {
+  z-index: 2;
+}
+
+.wheel {
+  z-index: 1;
+}
+
+
