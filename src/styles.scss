@@ -1,1 +1,496 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(~fullpage.js/dist/fullpage.min.css);
+@import '../node_modules/bootstrap-scss/bootstrap.scss';
+
+$primary-color: #f3ca2f;
+$white: #fff;
+
+.vertical-title {
+  top: 50%;
+  vertical-align: center;
+  white-space: nowrap;
+  position: absolute;
+  right: 100%;
+  transform-origin: top right 0;
+  transform: rotate( 270deg );
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-white {
+  color: $white;
+}
+
+html {
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: .025em;
+  line-height: 2.1428;
+  color: #929191;
+  background: #272727;
+  -webkit-overflow-scrolling: touch;
+}
+
+.body-fullpage {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background: #cee002
+}
+
+::selection {
+  background-color: #cee002;
+  color: #fff
+}
+
+-webkit-::selection {
+  background-color: #cee002;
+  color: #fff
+}
+
+::-moz-selection {
+  background-color: #cee002;
+  color: #fff
+}
+
+h1,
+.h1 {
+ font-weight:700;
+ font-size:3.428rem;
+ line-height:1.2;
+ font-weight:600;
+ color:#fff;
+ letter-spacing:-.025em;
+ margin:.5em 0
+}
+h2,
+.h2 {
+ font-weight:600;
+ font-size:2.571rem;
+ line-height:1.166;
+ color:#fff;
+ letter-spacing:0;
+ margin:2.6rem 0
+}
+h3,
+.h3 {
+ font-weight:600;
+ font-size:2.142rem;
+ line-height:1.2;
+ letter-spacing:-.05em;
+ color:#fff;
+ margin:2.6rem 0
+}
+h4,
+.h4 {
+ font-weight:600;
+ font-size:1.714rem;
+ line-height:1.25;
+ letter-spacing:.025em;
+ color:#fff;
+ margin:2.6rem 0
+}
+h5,
+.h5 {
+ font-weight:600;
+ font-size:1.571rem;
+ line-height:1.1;
+ letter-spacing:0;
+ color:#fff;
+ margin:2.6rem 0
+}
+h6,
+.h6 {
+ font-weight:600;
+ font-size:1.285rem;
+ line-height:1.3333;
+ letter-spacing:0;
+ color:#fff;
+ margin:2.6rem 0
+}
+h1 a,
+.h1 a,
+h2 a,
+.h2 a,
+h3 a,
+.h3 a,
+h4 a,
+.h4 a,
+h5 a,
+.h5 a,
+h6 a,
+.h6 a {
+ color:inherit
+}
+h1 a:hover,
+.h1 a:hover,
+h2 a:hover,
+.h2 a:hover,
+h3 a:hover,
+.h3 a:hover,
+h4 a:hover,
+.h4 a:hover,
+h5 a:hover,
+.h5 a:hover,
+h6 a:hover,
+.h6 a:hover {
+ text-decoration:none
+}
+strong {
+ font-weight:600
+}
+p,
+blockquote {
+ margin-bottom:2.6rem
+}
+blockquote {
+ font-family:playfair display,serif;
+ font-size:1.714rem;
+ letter-spacing:.025em;
+ line-height:1.5;
+ padding:0;
+ width:80%;
+ padding-left:6.8rem;
+ border-left:.3rem solid #cee002;
+ margin-top:5rem;
+ color:#fff
+}
+cite {
+ display:block;
+ color:#fff;
+ font-weight:600;
+ letter-spacing:0;
+ font-style:normal
+}
+.blockquote-cite {
+ font-size:1rem;
+ color:#999;
+ letter-spacing:.05em;
+ padding-left:7.1rem;
+ margin-bottom:5rem
+}
+.blockquote-cite cite {
+ font-size:1.14rem
+}
+a {
+ color:#cee002;
+ -webkit-transition:color .3s ease-out;
+ -o-transition:color .3s ease-out;
+ transition:color .3s ease-out
+}
+a:hover,
+a:focus {
+ color:#cee002;
+ outline:none
+}
+a:focus {
+ text-decoration:none
+}
+
+
+#section-1 {
+  text-align: center;
+  background: #5382d6;
+  height: 420px;
+  background-color: rgb(7, 152, 236);
+
+  /* The image used */
+  background-image: url("./assets/hero-bg.jpg");
+  //background: #272727;
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .profile {
+    background-image: url("./assets/profile.png");
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    vertical-align: bottom;
+  }
+
+  .title-uppercase {
+    text-transform: uppercase;
+    letter-spacing: -.025em;
+    line-height: 1.33333;
+    margin: 0 0 5rem;
+  }
+
+  hr {
+    height: 1em;
+    background-color: $primary-color;
+    border: none;
+    margin-left: 1em;
+    margin-right: 50em;
+  }
+
+  li {
+    display: inline-block;
+    margin: 1.25em 0.3em;
+  }
+}
+
+.section-1-button {
+  padding: .93em 1.87em;
+  background: #075f98;
+  border-radius: 5px;
+  display: block;
+  color: #fff;
+}
+
+#menu-line {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 159px;
+  height: 2px;
+  background: #fff;
+}
+
+#menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 70;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+
+  li {
+    display: inline-block;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  a {
+    color: #fff;
+    padding: 0 1.1em 1.1em 1.1em;
+    text-decoration: none;
+  }
+
+  li.active a:after {
+    content: '';
+    margin: 0 1.1em 0 1.1em;
+    height: 2px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    display: block;
+  }
+}
+
+@media(min-width:768px) {
+  html {
+   font-size:13px
+  }
+  .pull-sm-left {
+   float:left
+  }
+  .pull-sm-right {
+   float:right
+  }
+  .menu {
+   width:50%
+  }
+  .boxed {
+   padding-left:3rem;
+   padding-right:3rem
+  }
+  .boxed-inner {
+   padding-left:0
+  }
+  .right-boxed {
+   right:3rem
+  }
+  .left-boxed {
+   left:3rem
+  }
+  .section-about {
+   padding-top:12rem
+  }
+  .section-projects .filter {
+   margin-right:14rem
+  }
+  .section-projects .view-projects {
+   position:absolute;
+   top:0;
+   right:0
+  }
+  .sly ul li {
+   width:555px
+  }
+  .project-box {
+   padding-bottom:75%
+  }
+  .row-contact-info {
+   margin-top:-2rem
+  }
+  .col-contact-info {
+   padding-top:4rem;
+   margin-top:2rem
+  }
+  .footer-flex .flex-item {
+   -webkit-flex:0 0 33.3333%;
+   -ms-flex:0 0 33.3333%;
+   flex:0 0 33.3333%
+  }
+ }
+ @media(min-width:992px) {
+  html {
+   font-size:14px
+  }
+  .pull-md-right {
+   float:right
+  }
+  .menu {
+   width:35%
+  }
+  .boxed {
+   padding-left:4.2857rem;
+   padding-right:4.2857rem
+  }
+  .right-boxed {
+   right:4.2857rem
+  }
+  .left-boxed {
+   left:4.2857rem
+  }
+  .boxed-inner .boxed {
+   padding-left:6rem
+  }
+  .service-list {
+   margin-bottom:0
+  }
+  .col-contact-info {
+   border-top:0;
+   padding-top:0
+  }
+  .row-contact-info {
+   margin-top:-5rem
+  }
+  .col-contact-info {
+   margin-top:5rem
+  }
+  .page-header {
+   margin:12.8rem 0 10.8rem
+  }
+  .page-header-2 {
+   margin:8.7rem 0 10.5rem
+  }
+  .page-header-3 {
+   margin:9.2rem 0 12.2rem
+  }
+  .page-header-3 .title-hr {
+   margin:.9rem 0 0
+  }
+  .about-info .section-info .title-hr {
+   margin-top:1rem
+  }
+  .secondary {
+   padding:.5rem 0 0 6rem;
+   margin-top:0
+  }
+  .post-thumbnail {
+   padding-left:0;
+   padding-right:0
+  }
+  .about-info {
+   padding-top:1.2rem
+  }
+  .map {
+   height:36rem
+  }
+  .col-contact-info:nth-child(2n) {
+   border-left:1px solid #3c3c3c
+  }
+ }
+ @media(min-width:1200px) {
+  .pull-lg-right {
+   float:right
+  }
+  .section-projects .filter-content {
+   margin-top:0
+  }
+  .section-3 .link-arrow.h5 {
+   float:right;
+   margin-top:-1.3rem
+  }
+  .section-5 .title-uppercase {
+   margin-top:22vh;
+   margin-bottom:0
+  }
+  .sly ul li {
+   width:685px
+  }
+  .section-5 .vertical-centred {
+   padding-top:17rem;
+   padding-bottom:8rem
+  }
+  .col-contact-info {
+   border-left:1px solid #3c3c3c
+  }
+  .footer-flex .flex-item {
+   -webkit-box-flex:none;
+   -webkit-flex:none;
+   -ms-flex:none;
+   flex:none
+  }
+ }
+ @media(min-height:500px) {
+  #pp-nav .pp-nav-up,
+  #pp-nav .pp-nav-down {
+   display:block
+  }
+ }
+ @media(min-height:600px) {
+  .menu .menu-lang {
+   top:7rem
+  }
+  .menu-list {
+   top:14rem;
+   bottom:20rem
+  }
+  .menu-list>li {
+   font-size:2rem
+  }
+  .menu-footer {
+   bottom:6rem
+  }
+  .menu-footer .copy {
+   display:block
+  }
+ }
+ @media(min-height:700px) {
+  .copy-bottom {
+   display:block
+  }
+  .lang-bottom {
+   display:block
+  }
+ }
+ 
