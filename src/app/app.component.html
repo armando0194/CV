@@ -3,16 +3,22 @@
 <ul id="menu">
   <li class="" data-menuanchor="home"><a href="#home">Home</a></li>
   <li class="" data-menuanchor="aboutme" class=""><a href="#aboutme">About Me</a></li>
+  <li class="" data-menuanchor="projects" class=""><a href="#projects">Projects</a></li>
+  <li class="" data-menuanchor="resume" class=""><a href="#resume">Resume</a></li>
 </ul>
 
-<div  *ngIf="!loading" fullpage id="fullpage" [options]="config" class="fullpage-wrapper" (ref)="getRef($event)" #fullpageRef>
+<div *ngIf="!loading" fullpage id="fullpage" [options]="config" class="fullpage-wrapper" (ref)="getRef($event)"
+  #fullpageRef>
   <div class="section" id="section-1" data-anchor="home">
     <app-hero></app-hero>
   </div>
-  <div  class="section" id="section-2" data-anchor="aboutme">
-    <div *ngIf="!loading">
-      <app-aboutme [skills]="resume.skills"></app-aboutme>
-    </div>
+  <div class="section" id="section-2" data-anchor="aboutme">
+    <app-aboutme [skills]="resume.skills"></app-aboutme>
+  </div>
+  <div class="section" id="section-3" data-anchor="projects">
+    <app-projects [repos]="repos"></app-projects>
+  </div>
+  <div class="section" id="section-4" data-anchor="resume">
+      <app-resume [education]="resume.education" [work]="resume.work"></app-resume>
   </div>
 </div>
-

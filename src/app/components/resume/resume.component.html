@@ -1,0 +1,53 @@
+<div class="scroll-wrap">
+  <div class="section-bg" style="background-image:url(images/bg/bg3.jpg);"></div>
+  <div class="scrollable-content">
+    <div class="vertical-centred">
+      <div class="boxed boxed-inner">
+        <div class="vertical-title hidden-xs hidden-sm"><span>Resume</span></div>
+        <div class="boxed">
+          <div class="container">
+            <div class="intro">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="col-resume">
+                    <h6 class="resume-title">
+                      Education
+                    </h6>
+                    <div class="resume-content">
+                      <div class="resume-inner">
+                        <div class="resume-row" *ngFor="let degree of education">
+                            <app-resume-card [title]="degree.studyType + ' - ' + degree.area" 
+                                             [company]="degree.institution" 
+                                             [startDate]="degree.startDate" 
+                                             [endDate]="degree.endDate"></app-resume-card>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-resume">
+                    <h6 class="resume-title">
+                      Experience
+                    </h6>
+                    <div class="resume-content">
+                      <div class="resume-inner">
+                            <div class="resume-row" *ngFor="let job of work">
+                                <app-resume-card [title]="job.position" 
+                                                 [company]="job.company" 
+                                                 [startDate]="job.startDate" 
+                                                 [endDate]="job.endDate"
+                                                 [highlights]="job.highlights"></app-resume-card>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

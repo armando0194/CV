@@ -12,7 +12,12 @@ import { HeroComponent } from './components/hero/hero.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ResumeService } from './services/resume/resume.service';
+import { StarProjectsService } from './services/star-projects/star-projects.service';
 import { ChartsModule } from 'ng2-charts';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ResumeCardComponent } from './components/resume-card/resume-card.component';
 
 
 @NgModule({
@@ -20,7 +25,11 @@ import { ChartsModule } from 'ng2-charts';
     AppComponent,
     LoadingComponent,
     AboutmeComponent,
-    HeroComponent
+    HeroComponent,
+    ProjectsComponent,
+    ProjectCardComponent,
+    ResumeComponent,
+    ResumeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,8 @@ import { ChartsModule } from 'ng2-charts';
     ChartsModule
   ],
   providers: [
-    ResumeService
+    ResumeService,
+    StarProjectsService
   ],
   bootstrap: [AppComponent]
 })
